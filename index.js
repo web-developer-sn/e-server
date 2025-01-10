@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors')
 const path = require('path')
-
+require("dotenv").config()
 // import files
 
 // app instance
@@ -17,7 +17,7 @@ app.use(express.json())
 app.use(cors())
 
 // database
-mongoose.connect("mongodb://127.0.0.1:27017/wd11ecommerce")
+mongoose.connect(`${process.env.DATABASE_PATH}`)
         .then(() => {
             console.log("database connection established");
         })
@@ -35,8 +35,9 @@ app.use('/api',frontRoutes)
 // react routes
 app.use(express.static(path.join(__dirname, './build')));
 
-// port
+
 const PORT = process.env.PORT || 8000;
+
 
 // server listen
 app.listen(PORT, () => {
