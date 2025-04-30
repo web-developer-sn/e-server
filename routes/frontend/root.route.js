@@ -2,6 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
+const search=require('./search.routes')
 // authentication routes
 const authenticateRoutes = require('./authentication.route')
 
@@ -16,7 +17,7 @@ const cartRoutes = require('./cart.route');
 
 // checkout routes
 const checkoutRoutes = require('./checkout.route');
-
+router.use(search)
 router.use(authenticateRoutes)
 router.use(productRoutes)
 router.use(categoryRoutes)

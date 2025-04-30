@@ -8,16 +8,16 @@ const getProducts = async (req, res) => {
 
 const productById = async (req, res) => {
     try {
-        let product = await productModel.findOne({_id: req.params.id});
+        let product = await productModel.findOne({ _id: req.params.id });
 
-        if(product) {
+        if (product) {
             return res.json({
                 status: 200,
                 message: "Product exists",
                 data: product
             })
         }
-        
+
     } catch (error) {
         return res.json({
             status: 400,
@@ -26,6 +26,8 @@ const productById = async (req, res) => {
         })
     }
 }
+
+
 
 module.exports = {
     getProducts,
