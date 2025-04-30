@@ -1,7 +1,7 @@
 const userModel = require("../../models/user.model");
 const fs = require("fs");
 const path = require("path")
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const getUsers = async (req, res) => {
     let users = await userModel.find();
